@@ -1,0 +1,4 @@
+#!/bin/bash
+#log output to file
+today=$(date +%y%m%d)
+ls /usr/bin -al >log.$today

@@ -1,0 +1,4 @@
+echo awk 'BEGIN{RS="#";FS="\n"} {print $1,$2,$3,$4,$5}' data22 |sed -n 's/^[ ]*//gp' | column.exe -t 
+
+#remove space from front of the line
+echo " Test for you" | sed -n 's/^[ ]*//gp'

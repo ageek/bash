@@ -1,0 +1,14 @@
+Host: foo1
+some junk, doesnt matter
+some junk, doesnt matter
+Info: about foo1 that I really care about!!
+some junk, doesnt matter
+some junk, doesnt matter
+Info: a second line about foo1 that I really care about!!
+some junk, doesnt matter
+some junk, doesnt matter
+Host: foo2
+some junk, doesnt matter
+Info: about foo2 that I really care about!!
+some junk, doesnt matter
+some junk, doesnt matter
