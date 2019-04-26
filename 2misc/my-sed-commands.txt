@@ -1,0 +1,50 @@
+Ahmed@Softie ~/test/misc
+$ sed ':x ; /=$/{N; s/=\n//g; bx}' jaques.tx
+All the world's a stage,
+And all the men and women merely players:
+They have their exits and their entrances;
+And one man in his time plays many parts.
+
+Ahmed@Softie ~/test/misc
+$ sed ':x; /\\$/ {N;s/\\\n//; bx}' a.txt
+this is a long line
+and another line
+
+Ahmed@Softie ~/test/misc
+
+Ahmed@Softie ~/test
+$ echo "123456774747474747" |sed -n  '{:x; s/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/p; tx}'
+123456774747474,747
+123456774747,474,747
+123456774,747,474,747
+123456,774,747,474,747
+123,456,774,747,474,747
+
+Ahmed@Softie ~/test
+$ echo "123456774747474747" |sed -n  -E '{:x; s/(.*[0-9])([0-9]{3})/\1,\2/p; tx}'
+123456774747474,747
+123456774747,474,747
+123456774,747,474,747
+123456,774,747,474,747
+123,456,774,747,474,747
+
+Ahmed@Softie ~/test
+
+Ahmed@Softie ~
+$ echo "http://www.suon.co.uk/product/1/7/3/" | sed -n 's;\(http://[^/]*\)/.*;\1;p'
+http://www.suon.co.uk
+
+Ahmed@Softie ~
+$ echo "http://www.suon.co.uk/product/1/7/3/" | sed -n -E 's;(http://[^/]*)/.*;\1;p'
+http://www.suon.co.uk
+
+Ahmed@Softie ~
+$ echo "<b>foo</b>bar" | sed -E 's/<[^>]+>//g'
+foobar
+
+Ahmed@Softie ~
+$ echo "<b>foo</b>bar" | sed -E 's/<[^>]*>//g'
+foobar
+
+
+
