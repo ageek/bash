@@ -1,0 +1,8 @@
+a -> b
+c -> PREV
+d -> PREV
+e -> PREV
+ff -> GOLD
+g -> PREV
+n -> PREF
+

@@ -1,0 +1,30 @@
+Ahmed@Softie ~/test/so/55857710
+$ awk 'NR >1 && /PREV/ {$3=p}{p=$1}1' aa.txt
+a -> b
+c -> a
+d -> c
+e -> d
+ff -> GOLD
+g -> ff
+n -> PREF
+
+Ahmed@Softie ~/test/so/55857710
+$ sed -E 'h;/PREV/{H;s/PREV(.*)\n(\S+).*/\2\1/}'  aa.txt
+a -> b
+c -> PREV
+d -> PREV
+e -> PREV
+ff -> GOLD
+g -> PREV
+n -> PREF
+
+
+
+
+#print next 2 records after regex
+Ahmed@Softie ~/test/so/55857710
+$ awk 'c&&c--; /a/{c=2}' aa.txt
+c -> PREV
+d -> PREV
+
+
