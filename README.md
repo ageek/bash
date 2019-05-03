@@ -1,4 +1,6 @@
 # bash
 awk, sed exercises
 
-random bash snippets and junkies 
+my initial attempts at some StackOverflow Qs, ryantutorial exercises, hackerrank Qs etc.
+
+random bash snippets etc.
