@@ -1,2 +1,3 @@
 # bash
-random bash snippets and junkies
+awk, sed exercises
+random bash snippets and junkies 
