@@ -2,4 +2,6 @@ Ahmed@Softie ~/test/so/27740937
 $ awk '$1=="BB" && $2>1{print a} {a=$0}' data.txt
 AAAAAAAAAAAAA
 
-
+Expl===========
+$1=="BB" && $2>1 {print a} if the 1st field is exactly BB and 2nd field is bigger than 1, then print f, a stored value.
+{a=$0} store the current line in f, so that it is accessible when reading the next line.
