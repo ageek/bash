@@ -1,0 +1,7 @@
+$ sed -E '/BEGIN_FOO_END/!s/BEGIN_(.*)_END/(\1)/' data.txt
+(bar)
+BEGIN_FOO_END
+(buz)
+(ihfd8f398IHFf9f39)
+BEGIN_FOO_END
+

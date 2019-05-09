@@ -1,0 +1,1 @@
+ I want to take all substrings which start with BEGIN_, end with _END and the substring in between is not equal to FOO; and replace the whole substring with the format "(inner substring)".
