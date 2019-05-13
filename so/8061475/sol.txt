@@ -1,0 +1,58 @@
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ awk -v RS="3d3d" 'NR>1{print > NR".txt" }' data.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ ls
+2.txt  3.txt  4.txt  data.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ cat 2.txt
+01f87347545002f1d5b2be4ee4d700010100018000cc57e5820000000000000000000
+000000087d3f513000000000000000000000000000000000001001001010f000000000026
+58783100b354c52658783100b4
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+=======================
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ awk -v RS="3d3d" 'NR>1{print > (NR-1)".txt" }' data.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ ls
+1.txt  2.txt  3.txt  data.txt  sol.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ cat 1.txt
+01f87347545002f1d5b2be4ee4d700010100018000cc57e5820000000000000000000
+000000087d3f513000000000000000000000000000000000001001001010f000000000026
+58783100b354c52658783100b4
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ cat 3.txt
+1116cdcc57e58287d
+3f55285a1084b
+
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+==============================
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ awk -v RS="3d3d" 'NR>1{print RS $0 > "temp"(NR-1)".txt" }' data.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ ls
+data.txt  sol.txt  temp1.txt  temp2.txt  temp3.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ cat temp1.txt
+3d3d01f87347545002f1d5b2be4ee4d700010100018000cc57e5820000000000000000000
+000000087d3f513000000000000000000000000000000000001001001010f000000000026
+58783100b354c52658783100b4
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+$ cat temp3.txt
+3d3d1116cdcc57e58287d
+3f55285a1084b
+
+
+Ahmed@DA18091838 ~/reps/bash/so/8061475
+
