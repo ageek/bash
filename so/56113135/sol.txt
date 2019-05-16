@@ -1,0 +1,43 @@
+$ cat data.txt
+aa
+bbb a
+ccd    blah blah
+blah
+#includedir /etc/sudoers.d
+bha
+bha bha blah blah
+lsjdlfj
+test
+
+#$p -print at the end
+#$G - append hold to pattern
+# below the default action for sed is to print ( there is no suppression by -n)
+$ sed  '/#includedir \/etc\/sudoers.d/{h;$p;d;}; $G ' data.txt
+aa
+bbb a
+ccd    blah blah
+blah
+bha
+bha bha blah blah
+lsjdlfj
+test
+
+
+#includedir /etc/sudoers.d
+
+
+
+===========using awk
+$ awk '$0=="#includedir /etc/sudoers.d"{lastline=$0;next}{print $0}END{print lastline}' data.txt
+aa
+bbb a
+ccd    blah blah
+blah
+bha
+bha bha blah blah
+lsjdlfj
+test
+
+
+#includedir /etc/sudoers.d
+
