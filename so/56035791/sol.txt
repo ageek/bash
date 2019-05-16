@@ -1,0 +1,6 @@
+$ awk -v j=1 -v RS="" '{print gensub(/Nb /,"Nbu",j+1)}' data.txt
+Nb  Nbc blahblahblah
+Nbu blablablaNbblabla
+Cd  Nb
+and many lines that follow
+
