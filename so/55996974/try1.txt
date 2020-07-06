@@ -1,0 +1,8 @@
+$ sed '/^\[success\] Total/d' data.txt
+dont remove this line
+[success] faile ...dont remove this line
+[hola not to be removed
+[hola] dont remove this
+[] dont remove thisline
+this [success] Total dont remove this
+

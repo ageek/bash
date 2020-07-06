@@ -1,0 +1,1 @@
+I want to separate each record using the first column A0010, A0013, A0016, A0039 and load into database

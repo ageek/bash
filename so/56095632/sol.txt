@@ -1,0 +1,21 @@
+Ahmed@DA18091838 ~/reps/bash/so/56095632
+$ awk -F, '{print > "aa.txt"}' data.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/56095632
+$ cat aa.txt
+WH_01,TRAINAMS,A10,1221-ESD
+WH_03,TRAINLON,L10A3,3005-21
+WH_01,TRAINAMS,A101,PWR-120
+WH_02,TRAINCLE,A1,074-HD-SATA
+WH_01,TRAINAMS,A10,PWR-120
+WH_02,TRAINCLE,A15,102-55665
+WH_03,TRAINLON,L10A3,3005-20
+WH_03,TRAINLON,UK-B3,101859
+
+
+Ahmed@DA18091838 ~/reps/bash/so/56095632
+$ awk -F, '{print > $2".csv"}' data.txt
+
+Ahmed@DA18091838 ~/reps/bash/so/56095632
+$ ls
+data.txt  q.txt  sol.txt  TRAINAMS.csv  TRAINCLE.csv  TRAINLON.csv

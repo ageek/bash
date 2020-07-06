@@ -1,0 +1,7 @@
+$ sed 's/<type/<changed::type/g' data.txt
+a::b<changed::type::value> & d
+a::b<ns::type::value>& d
+
+
+
+

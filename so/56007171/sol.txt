@@ -1,0 +1,14 @@
+$ sed -En 's/(.*)\.([0-9]{4})(.*)/\1/p' data.txt
+Holidays.uS
+Holidays.ca.old
+Holidays
+Holidays.1.2.3.4.at.old
+
+
+using gnu sed
+$ sed 's/\(.*\)\.\([0-9]\{4\}\)\(.*\)/\1/' data.txt
+Holidays.uS
+Holidays.ca.old
+Holidays
+Holidays.1.2.3.4.at.old
+

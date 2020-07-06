@@ -1,0 +1,4 @@
+#remove any line begining with'[' e.g. (space/tab etc) [ blah blah blah
+$ sed -E '/^\s*\[/d' data3.txt
+dont remove this line
+this [success] Total dont remove this

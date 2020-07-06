@@ -1,0 +1,8 @@
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+
+127.0.0.1 console-dev.foo.bar
+12700.0.1 console-dev.foo.bar
+
+192.168.64.22 apiserver.foo.bar console.foo.bar

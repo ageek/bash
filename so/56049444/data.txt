@@ -1,0 +1,2 @@
+a::b<type::value> & d
+a::b<ns::type::value>& d

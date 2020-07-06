@@ -1,0 +1,15 @@
+$ awk '$1=="127.0.0.1"||!index($0,"foo.bar")' data.txt
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+
+127.0.0.1 console-dev.foo.bar
+
+$ sed '/^127\.0\.0\.1/!{/foo\.bar/d}' data.txt
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+
+127.0.0.1 console-dev.foo.bar
+
+
