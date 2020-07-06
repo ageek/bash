@@ -1,0 +1,179 @@
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n 'p' /etc/passwd|wc -l
+43
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed  'p' /etc/passwd|wc -l
+86
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/^root/p' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n -e '/^root/ p'  -e '/^topo/ p' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+topo:x:1000:1000:topo,,,:/home/topo:/bin/bash
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '3,$p' employee.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '1~1p' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '1~2p' employee.txt
+101,John Doe,CEO
+103,Raj Reddy,Sysadmin
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '2~2p' employee.txt
+102,Jason Smith,IT Manager
+104,Anand Ram,Developer
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed /Jane/p employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n /Jane/p employee.txt
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,4 p' employee.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,$ p' employee.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,/Jane/p' employee.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,+2 p' employee.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed 2d employee.txt
+101,John Doe,CEO
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '2,4d' employee.txt
+101,John Doe,CEO
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '2,$d' employee.txt
+101,John Doe,CEO
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '1~2d' employee.txt
+102,Jason Smith,IT Manager
+104,Anand Ram,Developer
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/Manager/ d' employee.txt
+101,John Doe,CEO
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/Jason/,4 d' employee.txt
+101,John Doe,CEO
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/Jason/,$ d' employee.txt
+101,John Doe,CEO
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/Raj/,$ d' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/Raj/,+2 d' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/Jason/,+2 d' employee.txt
+101,John Doe,CEO
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '^$ d' employee.txt
+sed: -e expression #1, char 1: unknown command: `^'
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/^$/ d' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/^#/ d' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed '/^#/,/^$/ d' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Jane/ w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '1~2 w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+101,John Doe,CEO
+103,Raj Reddy,Sysadmin
+105,Jane Miller,Sales Manager
+#howdy
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '2,$ w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Jane/,4 w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,4 w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,/Jason/ w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk$ sed -n '/Raj/,/Jane/ w output.txt' employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk$ cat output.txt
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+(base) topo@topobox:~/myrep/bash/sed-awk$
+
+
+
