@@ -1,0 +1,27 @@
+
+(base) topo@topobox:~/myrep/bash/grep$ grep -E '(red|green|blue)' a2.txt
+The red dog fetches the green ball.
+The green dog fetches the blue ball.
+The blue dog fetches the blue ball.
+(base) topo@topobox:~/myrep/bash/grep$ grep -E '(red|green|blue).*(red|green|blue)' a2.txt
+The red dog fetches the green ball.
+The green dog fetches the blue ball.
+The blue dog fetches the blue ball.
+(base) topo@topobox:~/myrep/bash/grep$ grep -E '(red|green|blue)*(red|green|blue)' a2.txt
+The red dog fetches the green ball.
+The green dog fetches the blue ball.
+The blue dog fetches the blue ball.
+(base) topo@topobox:~/myrep/bash/grep$ grep -E '(red|green|blue).*\1' a2.txt
+The blue dog fetches the blue ball.
+(base) topo@topobox:~/myrep/bash/grep$ ll
+total 12
+-rw-r--r-- 1 topo topo  213 Jul  4 18:17 a1.txt
+-rw-r--r-- 1 topo topo  110 Jul  4 18:17 a2.txt
+-rw-r--r-- 1 topo topo 1647 Jul  4 17:34 grep-a1.txt
+(base) topo@topobox:~/myrep/bash/grep$ vi grep-a1.txt
+(base) topo@topobox:~/myrep/bash/grep$ vi a2.txt
+(base) topo@topobox:~/myrep/bash/grep$ egrep '(red|green|blue|white).*\1' a2.txt
+The blue dog fetches the blue ball.
+The white dog fetches the white ball.
+(base) topo@topobox:~/myrep/bash/grep$
+
