@@ -1,0 +1,120 @@
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/locate/find/g' sub.txt
+find command is used to find files
+find command uses database to find files
+find command can also use regex for searching
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ cat sub.txt
+locate command is used to locate files
+locate command uses database to locate files
+locate command can also use regex for searching
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/locate/find/2' sub.txt
+locate command is used to find files
+locate command uses database to find files
+locate command can also use regex for searching
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -n 's/John/Jhonny/p' ./../ch1/employee.txt
+101,Jhonny Doe,CEO
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -n 's/Johnn/Jhonny/p' ./../ch1/employee.txt
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -n 's/locate/find/p' sub.txt
+find command is used to locate files
+find command uses database to locate files
+find command can also use regex for searching
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -n 's/locate/find/2p' sub.txt
+locate command is used to find files
+locate command uses database to find files
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -n 's/locate/find/2w output.txt' sub.txt
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ cat output.txt
+locate command is used to find files
+locate command uses database to find files
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
+
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/john/Jhonny/' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/john/Jhonny/i' employee.txt
+101,Jhonny Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
+
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/^/ls -l /e' files.txt
+-rw-r--r-- 1 root root 2501 May  1  2019 /etc/passwd
+-rw-r--r-- 1 root root 952 May  1  2019 /etc/group
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/^/wc -l /e' files.txt
+43 /etc/passwd
+68 /etc/group
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -n 's/manager/Director/gipw out2.txt' employee.txt
+102,Jason Smith,IT Director
+105,Jane Miller,Sales Director
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ cat out2.txt
+102,Jason Smith,IT Director
+105,Jane Miller,Sales Director
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed '{
+> s/Developer/IT Manager/
+> s/Manager/Director/
+> }' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Director
+103,Raj Reddy,Sysadmin
+104,Anand Ram,IT Director
+105,Jane Miller,Sales Director
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ cat employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
+
+
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed 's/^[0-9]{3}/[&]/' employee.txt
+101,John Doe,CEO
+102,Jason Smith,IT Manager
+103,Raj Reddy,Sysadmin
+104,Anand Ram,Developer
+105,Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$ sed -r 's/^[0-9]{3}/[&]/' employee.txt
+[101],John Doe,CEO
+[102],Jason Smith,IT Manager
+[103],Raj Reddy,Sysadmin
+[104],Anand Ram,Developer
+[105],Jane Miller,Sales Manager
+# hello
+#howdy
+
+#hola
+(base) topo@topobox:~/myrep/bash/sed-awk/ch2$
